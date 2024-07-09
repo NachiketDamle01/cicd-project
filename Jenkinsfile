@@ -67,7 +67,7 @@ pipeline {
 			stage('Publish Docker Image') {              
 				steps {                  
 					script {                      
-						withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker',url: 'https://hub.docker.com/) {                          
+						withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker',url: 'https://hub.docker.com/') {                          
 							sh "docker push 2121997/cicd-project:latest"                      
 						}                  
 					}              
