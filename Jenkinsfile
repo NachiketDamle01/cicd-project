@@ -6,7 +6,7 @@ pipeline {
 		}            
 		environment {          
 			SCANNER_HOME = tool 'sonar-scanner'
-			JAVA_HOME = tool 'jdk11'
+			JAVA_HOME = tool 'jdk17'
 		}        
 		stages {          
 			stage('Git Checkout') {              
@@ -46,7 +46,7 @@ pipeline {
 			}          
 			stage('Deploy Artifacts To Nexus') {              
 				steps {                  
-					withMaven(globalMavenSettingsConfig: 'maven-setting', jdk: 'jdk11', maven: 'maven3', mavenSettingsConfig: '', traceability: true) {                      
+					withMaven(globalMavenSettingsConfig: 'maven-setting', jdk: 'jdk17', maven: 'maven3', mavenSettingsConfig: '', traceability: true) {                      
 						sh "mvn deploy -DskipTests=true"                  
 					}              
 				}          
