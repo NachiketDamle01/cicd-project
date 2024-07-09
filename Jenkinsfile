@@ -31,9 +31,9 @@ pipeline {
 			stage('SonarQube Analysis') {              
 				steps {                  
 					withSonarQubeEnv('sonar') {                      
-						sh '''$SCANNER_HOME/bin/sonar-scanner \                         
-						-Dsonar.projectKey=Mission \                         
-						-Dsonar.projectName=Mission \                         
+						sh '''$SCANNER_HOME/bin/sonar-scanner                          
+						-Dsonar.projectKey=Mission                          
+						-Dsonar.projectName=Mission                          
 						-Dsonar.java.binaries=.'''                 
 					}              
 				}          
