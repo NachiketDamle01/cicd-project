@@ -5,7 +5,8 @@ pipeline {
 		maven 'maven3'              
 		}            
 		environment {          
-		SCANNER_HOME = tool 'sonar-scanner'      
+			SCANNER_HOME = tool 'sonar-scanner'
+			JAVA_HOME = tool 'jdk11'
 		}        
 		stages {          
 			stage('Git Checkout') {              
@@ -31,7 +32,7 @@ pipeline {
 			stage('SonarQube Analysis') {              
 				steps {                  
 					withSonarQubeEnv('sonar') {                      
-						sh '''$SCANNER_HOME/bin/sonar-scanner                          
+						sh '''${tool 'jdk11'}/bin/java -jar ${SCANNER_HOME}/bin/sonar-scanner.jar                       
 						-Dsonar.projectKey=Mission                          
 						-Dsonar.projectName=Mission                          
 						-Dsonar.java.binaries=.'''                 
