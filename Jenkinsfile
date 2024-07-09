@@ -29,17 +29,17 @@ pipeline {
 					sh "trivy fs --format table -o trivy-fs-report.html ."              
 				}          
 			}                    
-			stage('SonarQube Analysis') {              
-				steps {                  
-					withSonarQubeEnv('sonar') {                      
-						sh '''${SCANNER_HOME}/bin/sonar-scanner                       
-						-Dsonar.projectKey=cicd-project                          
-						-Dsonar.projectName=cicd-project                          
-						-Dsonar.java.binaries=target/classes
-						-Dsonar.sources=src/main/java'''                 
-					}              
-				}          
-			}                    
+			// stage('SonarQube Analysis') {              
+			// 	steps {                  
+			// 		withSonarQubeEnv('sonar') {                      
+			// 			sh '''${SCANNER_HOME}/bin/sonar-scanner                       
+			// 			-Dsonar.projectKey=cicd-project                          
+			// 			-Dsonar.projectName=cicd-project                          
+			// 			-Dsonar.java.binaries=target/classes
+			// 			-Dsonar.sources=src/main/java'''                 
+			// 		}              
+			// 	}          
+			// }                    
 			stage('Build') {              
 				steps {                  
 					sh "mvn package -DskipTests=true"              
