@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
-  name: cicd-project7-deployment
+  name: cicd-project-deployment
 spec:
   selector:
     matchLabels:
-      app: cicd-project7
+      app: cicd-project
   replicas: 2 # Number of replicas that will be created for this deployment
   template:
     metadata:
       labels:
-        app: cicd-project7
+        app: cicd-project
     spec:
       containers:
-        - name: cicd-project7
-          image: madeep2669/cicd-project7:latest # Image that will be used to containers in the cluster
+        - name: cicd-project
+          image: 2121997/cicd-project:latest # Image that will be used to containers in the cluster
           imagePullPolicy: Always
           ports:
             - containerPort: 8080 # The port that the container is running on in the cluster
@@ -25,11 +25,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: cicd-project7-ssvc
+  name: cicd-project-ssvc
   namespace: webapps
 spec:
   selector:
-    app: cicd-project7
+    app: cicd-project
   ports:
     - protocol: TCP
       port: 80
