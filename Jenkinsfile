@@ -35,7 +35,8 @@ pipeline {
 						sh '''${SCANNER_HOME}/bin/sonar-scanner                       
 						-Dsonar.projectKey=Mission                          
 						-Dsonar.projectName=Mission                          
-						-Dsonar.java.binaries=.'''                 
+						-Dsonar.java.binaries=target/classes
+						-Dsonar.sources=src/main/java'''                 
 					}              
 				}          
 			}                    
