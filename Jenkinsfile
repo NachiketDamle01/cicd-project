@@ -32,7 +32,7 @@ pipeline {
 			stage('SonarQube Analysis') {              
 				steps {                  
 					withSonarQubeEnv('sonar') {                      
-						sh '''${tool 'jdk11'}/bin/java -jar ${SCANNER_HOME}/bin/sonar-scanner.jar                       
+						sh '''${SCANNER_HOME}/bin/sonar-scanner                       
 						-Dsonar.projectKey=Mission                          
 						-Dsonar.projectName=Mission                          
 						-Dsonar.java.binaries=.'''                 
