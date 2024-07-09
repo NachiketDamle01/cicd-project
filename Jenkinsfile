@@ -33,8 +33,8 @@ pipeline {
 				steps {                  
 					withSonarQubeEnv('sonar') {                      
 						sh '''${SCANNER_HOME}/bin/sonar-scanner                       
-						-Dsonar.projectKey=Mission                          
-						-Dsonar.projectName=Mission                          
+						-Dsonar.projectKey=sonar-scanner                          
+						-Dsonar.projectName=sonar-scanner                          
 						-Dsonar.java.binaries=target/classes
 						-Dsonar.sources=src/main/java'''                 
 					}              
