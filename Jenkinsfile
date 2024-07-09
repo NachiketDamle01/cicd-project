@@ -53,7 +53,7 @@ pipeline {
 			stage('Build & Tag Docker Image') {              
 				steps {                  
 					script {                      
-						withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker',url: 'https://hub.docker.com/) {                          
+						withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker',url: 'https://hub.docker.com/') {                          
 							sh "docker build -t 2121997/cicd-project:latest ."                      
 						}                  
 					}              
