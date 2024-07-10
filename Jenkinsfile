@@ -54,9 +54,9 @@ pipeline {
 			}
 			stage('Verify Docker') {
             			steps {
-                			sh 'sudo docker --version'
-                			sh 'sudo docker info'
-                			sh 'sudo docker run hello-world'
+                			sh 'docker --version'
+                			sh 'docker info'
+                			sh 'docker run hello-world'
             			}
        	 		}
 			stage('Build & Tag Docker Image') {              
