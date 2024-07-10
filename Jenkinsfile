@@ -51,7 +51,14 @@ pipeline {
 						sh "mvn deploy -DskipTests=true"                  
 					}              
 				}          
-			}                    
+			}
+			stage('Verify Docker') {
+            			steps {
+                			sh 'docker --version'
+                			sh 'docker info'
+                			sh 'docker run hello-world'
+            			}
+       	 		}
 			stage('Build & Tag Docker Image') {              
 				steps {                  
 					script {                      
